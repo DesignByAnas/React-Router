@@ -1,11 +1,13 @@
-import React from 'react'
-import "./App.css"
-import { Navbar } from './component/Navbar'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Home } from './component/Home'
-import Login from './component/Login'
-import About from './component/About'
-import Contact from './component/Contact'
+import React from 'react';
+import './App.css';
+import { Navbar } from './component/Navbar';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Home } from './component/Home';
+import Login from './component/Login';
+import About from './component/About';
+import Contact from './component/Contact';
+import { ProductList } from './component/ProductList';
+import { ProductDetail } from './component/ProductDetail';
 
 export default function App() {
   const router = createBrowserRouter([
@@ -24,8 +26,17 @@ export default function App() {
     {
       path: "/contact",
       element: <><Navbar></Navbar> <Contact></Contact></>
+    },
+    {
+      path: "/products",
+      element: <><Navbar /> <ProductList /></>
+    },
+    {
+      path: "/products/:productId",
+      element: <><Navbar /> <ProductDetail /></>
     }
-])
+]);
+
   return (
     <>
     <div>App</div>
